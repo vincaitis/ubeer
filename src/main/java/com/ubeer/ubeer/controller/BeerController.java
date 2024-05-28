@@ -36,7 +36,7 @@ public class BeerController {
     @PutMapping("/{id}")
     public ResponseEntity<BeerEntity> updateBeer(@PathVariable Long id, @RequestBody BeerEntity beer) {
         BeerEntity updatedBeer = beerService.updateBeer(id, beer);
-        return ResponseEntity.ok().body(updatedBeer);
+        return updatedBeer != null ? ResponseEntity.ok(updatedBeer) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")

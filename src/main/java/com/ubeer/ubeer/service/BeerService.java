@@ -25,9 +25,16 @@ public class BeerService {
         return beerRepository.save(beer);
     }
 
-    public BeerEntity updateBeer(Long id, BeerEntity beer) {
-        beer.setId(id);
-        return beerRepository.save(beer);
+    public BeerEntity updateBeer(Long id, BeerEntity beerDetails) {
+        BeerEntity beer = beerRepository.findById(id).orElse(null);
+        if (beer != null) {
+            beer.setName(beerDetails.getName());
+            beer.setBrewery(beerDetails.getBrewery());
+            beer.setType(beerDetails.getType());
+            beer.setImage(beerDetails.getImage());
+            return beerRepository.save(beer);
+        }
+        return null;
     }
 
     public void deleteBeer(Long id) {

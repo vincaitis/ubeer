@@ -17,7 +17,6 @@ public class ImageEntity {
     @JoinColumn(name = "beer_id", referencedColumnName = "ID")
     private BeerEntity beer;
 
-
     // Getters and setters
     public Long getId() {
         return id;

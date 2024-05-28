@@ -2,24 +2,28 @@ package com.ubeer.ubeer.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "beer")
 public class BeerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "brewery")
-    private String brewery;
+    @ManyToOne
+    @JoinColumn(name = "brewery_id", referencedColumnName = "ID")
+    private BreweryEntity brewery;
 
-    @Column(name = "type")
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name = "image")
-    private String image;
+    @OneToMany(mappedBy = "beer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ImageEntity> images;
 
     // Getters and setters
     public Long getId() {
@@ -38,21 +42,27 @@ public class BeerEntity {
         this.name = name;
     }
 
-    public String getBrewery() {
+    public BreweryEntity getBrewery() {
         return brewery;
     }
 
-    public void setBrewery(String brewery) {
+    public void setBrewery(BreweryEntity brewery) {
         this.brewery = brewery;
     }
 
-    public String getImage() {
-        return image;
+    public String getType() {
+        return type;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setType(String type) {
+        this.type = type;
     }
 
+    public List<ImageEntity> getImage() {
+        return images;
+    }
 
+    public void setImage(List<ImageEntity> images) {
+        this.images = images;
+    }
 }

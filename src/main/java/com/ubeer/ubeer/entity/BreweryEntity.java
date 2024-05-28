@@ -15,9 +15,11 @@ public class BreweryEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "city", nullable = false)
+    private String city;
+
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BeerEntity> beers;
-
 
     // Getters and setters
     public Long getId() {
@@ -34,6 +36,14 @@ public class BreweryEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public List<BeerEntity> getBeers() {
