@@ -15,6 +15,9 @@ public class BeerEntity {
     @Column(name = "brewery")
     private String brewery;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name = "image")
     private String image;
 
