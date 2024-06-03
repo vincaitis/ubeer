@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ubeer-backend
+    env: docker
+    repo: https://github.com/vincvincvincvinc/ubeer
+    branch: main
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    buildCommand: "docker-compose build"
+    runtime:
+    startCommand: "docker-compose up"
