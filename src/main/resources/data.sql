@@ -1,4 +1,3 @@
-/*
 -- Insert breweries
 INSERT INTO brewery (name, city) VALUES ('Duff Brewery', 'Springfield');
 INSERT INTO brewery (name, city) VALUES ('Pawtucket Patriot Brewery', 'Quahog');
@@ -28,4 +27,3 @@ INSERT INTO image (url, beer_id) VALUES ('https://example.com/fudd_beer.png', 5)
 INSERT INTO image (url, beer_id) VALUES ('https://example.com/benderbrau.png', 6);
 INSERT INTO image (url, beer_id) VALUES ('https://example.com/kokanee_beer.png', 7);
 INSERT INTO image (url, beer_id) VALUES ('https://example.com/elsinore_beer.png', 8);
-*/
