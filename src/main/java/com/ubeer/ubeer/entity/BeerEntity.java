@@ -1,8 +1,8 @@
 package com.ubeer.ubeer.entity;
 
 import jakarta.persistence.*;
-
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "beer")
@@ -17,6 +17,7 @@ public class BeerEntity {
 
     @ManyToOne
     @JoinColumn(name = "brewery_id", referencedColumnName = "ID")
+    @JsonIgnoreProperties("beers")
     private BreweryEntity brewery;
 
     @Column(name = "type", nullable = false)

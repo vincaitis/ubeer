@@ -1,6 +1,7 @@
 package com.ubeer.ubeer.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "image")
@@ -15,6 +16,7 @@ public class ImageEntity {
 
     @ManyToOne
     @JoinColumn(name = "beer_id", referencedColumnName = "ID")
+    @JsonIgnoreProperties("image")
     private BeerEntity beer;
 
     // Getters and setters

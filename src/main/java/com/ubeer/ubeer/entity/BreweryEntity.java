@@ -1,8 +1,8 @@
 package com.ubeer.ubeer.entity;
 
 import jakarta.persistence.*;
-
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "brewery")
@@ -19,6 +19,7 @@ public class BreweryEntity {
     private String city;
 
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("brewery")
     private List<BeerEntity> beers;
 
     // Getters and setters
