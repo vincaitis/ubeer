@@ -22,6 +22,8 @@ public class BeerEntity {
 
     @Column(name = "type", nullable = false)
     private String type;
+    @Column(name = "description", nullable = false)
+    private String description;
 
     @OneToMany(mappedBy = "beer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ImageEntity> images;
@@ -57,6 +59,14 @@ public class BeerEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<ImageEntity> getImage() {

@@ -31,6 +31,7 @@ public class BeerService {
             beer.setName(beerDetails.getName());
             beer.setBrewery(beerDetails.getBrewery());
             beer.setType(beerDetails.getType());
+            beer.setDescription(beerDetails.getDescription());
             beer.setImage(beerDetails.getImage());
             return beerRepository.save(beer);
         }

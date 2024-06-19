@@ -18,6 +18,9 @@ public class BreweryEntity {
     @Column(name = "city", nullable = false)
     private String city;
 
+    @Column(name = "description", nullable = false)
+    private String description;
+
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("brewery")
     private List<BeerEntity> beers;
@@ -37,6 +40,14 @@ public class BreweryEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCity() {
