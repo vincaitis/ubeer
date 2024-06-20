@@ -19,8 +19,11 @@ CREATE TABLE image (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        url VARCHAR(255) NOT NULL,
                        beer_id INT,
-                       FOREIGN KEY (beer_id) REFERENCES beer(id)
+                       brewery_id INT,  -- Add this line to define the brewery_id column
+                       FOREIGN KEY (beer_id) REFERENCES beer(id),
+                       FOREIGN KEY (brewery_id) REFERENCES brewery(id)
 );
+
 
 -- Insert breweries
 INSERT INTO brewery (name, city, description) VALUES ('Duff Brewery', 'Springfield', 'Duff Brewery: The heart and soul of Springfield, where every sip of Duff Beer makes you feel like a local hero.');
@@ -53,3 +56,12 @@ INSERT INTO image (url, beer_id) VALUES ('https://static.wikia.nocookie.net/fict
 INSERT INTO image (url, beer_id) VALUES ('https://i.pinimg.com/736x/d7/39/e6/d739e6edf3d90eece2e48e7584a09aff.jpg', 6);
 INSERT INTO image (url, beer_id) VALUES ('https://kootenaymountainculture.com/wp-content/uploads/2023/03/Kokanee-beer-label-1999-340x759.png', 7);
 INSERT INTO image (url, beer_id) VALUES ('https://i.ebayimg.com/images/g/WoQAAOSwVddjDoNS/s-l1600.jpg', 8);
+-- Insert images for breweries
+INSERT INTO image (url, brewery_id) VALUES ('https://static.wikia.nocookie.net/simpsons/images/4/45/Duff_lite_%26_dry.png', 1);
+INSERT INTO image (url, brewery_id) VALUES ('https://static.wikia.nocookie.net/familyguyfanon/images/9/9f/Pawtucket_Brewery.png', 2);
+INSERT INTO image (url, brewery_id) VALUES ('https://yolongbrewtech.com/wp-content/uploads/2018/06/24HL-micro-brewery.jpg', 3);
+INSERT INTO image (url, brewery_id) VALUES ('https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2015/03/scottball_alamobrewgrandopen2.jpg', 4);
+INSERT INTO image (url, brewery_id) VALUES ('https://static.simpsonswiki.com/images/thumb/5/51/Fudd_on_Tap.png/250px-Fudd_on_Tap.png', 5);
+INSERT INTO image (url, brewery_id) VALUES ('https://absurdink.com/cdn/shop/products/Benderbrau_-_Pint_Glass_Pint_Glass_Dark_Lifestyle_Mockup_png_2048x.jpg', 6);
+INSERT INTO image (url, brewery_id) VALUES ('https://kootenaybiz.com/images/uploads/Columbia_Brewery_16.jpg', 7);
+INSERT INTO image (url, brewery_id) VALUES ('https://i.ebayimg.com/images/g/QBsAAOSw9fxgwV67/s-l400.jpg', 8);

@@ -14,7 +14,7 @@ public class BreweryService {
     private BreweryRepository breweryRepository;
 
     public List<BreweryEntity> getAllBreweries() {
-        return breweryRepository.findAll();
+        return breweryRepository.findAllWithImages();
     }
 
     public BreweryEntity getBreweryById(Long id) {
