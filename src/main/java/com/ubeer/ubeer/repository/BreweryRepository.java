@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface BreweryRepository extends JpaRepository<BreweryEntity, Long> {
 
-    @Query("SELECT b FROM BreweryEntity b LEFT JOIN FETCH b.images")
+    @Query("SELECT b FROM BreweryEntity b LEFT JOIN FETCH b.image")
     List<BreweryEntity> findAllWithImages();
 }

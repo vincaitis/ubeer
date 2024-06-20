@@ -23,16 +23,13 @@ public class BreweryEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToOne
-    @JoinColumn(name = "image_id")
-    private ImageEntity image;
-
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("brewery")
     private List<BeerEntity> beers;
 
-    @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ImageEntity> images;
+    @OneToOne
+    @JoinColumn(name = "image_id")
+    private ImageEntity image;
 
 
     // Getters and setters
@@ -74,5 +71,13 @@ public class BreweryEntity {
 
     public void setBeers(List<BeerEntity> beers) {
         this.beers = beers;
+    }
+
+    public ImageEntity getImage() {
+        return image;
+    }
+
+    public void setImage(ImageEntity image) {
+        this.image = image;
     }
 }
