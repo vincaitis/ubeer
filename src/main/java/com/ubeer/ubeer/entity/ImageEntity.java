@@ -14,6 +14,7 @@ public class ImageEntity {
     @Column(name = "url", nullable = false)
     private String url;
 
+
     @ManyToOne
     @JoinColumn(name = "beer_id", referencedColumnName = "ID")
     @JsonIgnoreProperties("image")

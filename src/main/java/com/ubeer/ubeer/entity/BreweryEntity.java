@@ -23,6 +23,10 @@ public class BreweryEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @OneToOne
+    @JoinColumn(name = "image_id")
+    private ImageEntity image;
+
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("brewery")
     private List<BeerEntity> beers;
