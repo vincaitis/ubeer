@@ -19,6 +19,12 @@ public class ImageEntity {
     @JsonIgnoreProperties("image")
     private BeerEntity beer;
 
+    @ManyToOne
+    @JoinColumn(name = "brewery_id", referencedColumnName = "ID")
+    @JsonIgnoreProperties("image")
+    private BreweryEntity brewery;
+
+
     // Getters and setters
     public Long getId() {
         return id;
